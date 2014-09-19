@@ -38,3 +38,16 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :test, :development do
+	gem 'rspec-rails'
+	gem 'cucumber-rails', require: false
+end
+
+group :test do
+	gem 'capybara'
+	gem 'capybara-webkit'
+end
+
+
+gem "spring-commands-rspec", group: :development
+gem "spring-commands-cucumber"
