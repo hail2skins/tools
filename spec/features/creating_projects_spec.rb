@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Creating Projects' do
   before do
-  	visit '/'
+  	visit projects_path
   	click_link 'New Project'
   end
 
