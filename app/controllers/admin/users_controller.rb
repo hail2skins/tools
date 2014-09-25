@@ -30,12 +30,15 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def update
-  	if params[:user][:password].blank? 
-  		params[:user].delete(:password)
-  		params[:user].delete(:password_confirmation)
+  	params = user_params.dup
+  	if params[:password].blank? 
+  		params.delete(:password)
+  		params.delete(:password_confirmation)
+  	else 
+  		params[:password_confirmation] = params[:password]
   	end
 
-   	if @user.update_attributes(params[:user], :as => :admin)
+   	if @user.update(params)
   		flash[:notice] = "User has been updated."
   		redirect_to admin_users_path
   	else
