@@ -52,3 +52,5 @@ end
 
 gem "spring-commands-rspec", group: :development
 gem "spring-commands-cucumber"
+
+gem 'cancancan', '~> 1.9'
