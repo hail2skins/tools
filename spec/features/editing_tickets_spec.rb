@@ -10,9 +10,10 @@ feature "Editing tickets" do
 	end
 
   before do
+    define_permission!(user, "view", project)
 		sign_in_as!(user)
 
-    visit '/'
+    visit projects_path
     click_link project.name
     click_link ticket.title
     click_link "Edit Ticket"

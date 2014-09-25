@@ -14,12 +14,16 @@ feature "Viewing tickets" do
 
     internet_explorer = FactoryGirl.create(:project,
                                            name: "Internet Explorer")
+    
     FactoryGirl.create(:ticket,
             project: internet_explorer,
             title: "Standards compliance",
             description: "Isn't a joke.")
-		
-    visit '/'
+
+    sign_in_as!(user)
+		define_permission!(user, "view", textmate_2)
+    define_permission!(user, "view", internet_explorer)
+    visit projects_path
   end
 
   scenario "Viewing tickets for a given project" do
