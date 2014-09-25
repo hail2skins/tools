@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Signing up' do
 	scenario 'Successful sign up' do
-		visit projects_path
+		visit '/signin'
 
 		click_link 'Sign up'
 		fill_in "Email", with: "user@example.com"
