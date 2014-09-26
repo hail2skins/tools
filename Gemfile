@@ -54,3 +54,4 @@ gem "spring-commands-rspec", group: :development
 gem "spring-commands-cucumber"
 
 gem 'cancancan', '~> 1.9'
+gem 'carrierwave', '~> 0.10.0'

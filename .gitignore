@@ -24,6 +24,8 @@
 
 /db/seeds.rb
 
+public/uploads
+
 .env
 Procfile
 
