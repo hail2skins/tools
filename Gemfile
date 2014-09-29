@@ -47,6 +47,7 @@ group :test do
 	gem 'capybara'
 	gem 'capybara-webkit'
 	gem 'factory_girl_rails'
+	gem 'selenium-webdriver'
 end
 
 
@@ -55,3 +56,5 @@ gem "spring-commands-cucumber"
 
 gem 'cancancan', '~> 1.9'
 gem 'carrierwave', '~> 0.10.0'
+gem 'database_cleaner', '~> 1.3.0'
+gem 'launchy', '~> 2.4.2'
