@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930142114) do
+ActiveRecord::Schema.define(version: 20140930161954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140930142114) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "state_id"
   end
 
   add_index "comments", ["ticket_id"], name: "index_comments_on_ticket_id", using: :btree
@@ -52,6 +53,12 @@ ActiveRecord::Schema.define(version: 20140930142114) do
     t.datetime "updated_at"
   end
 
+  create_table "states", force: true do |t|
+    t.string "name"
+    t.string "color"
+    t.string "background"
+  end
+
   create_table "tickets", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -59,6 +66,7 @@ ActiveRecord::Schema.define(version: 20140930142114) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "state_id"
   end
 
   add_index "tickets", ["project_id"], name: "index_tickets_on_project_id", using: :btree
