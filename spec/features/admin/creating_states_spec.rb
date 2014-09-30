@@ -10,7 +10,7 @@ feature 'Creating states' do
 		click_link "States"
 		click_link "New State"
 		fill_in "Name", with: "Duplicate"
-		cliick_button "Create State"
+		click_button "Create State"
 		expect(page).to have_content("State has been created.")
 	end
 end
