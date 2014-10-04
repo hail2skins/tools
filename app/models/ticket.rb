@@ -13,4 +13,15 @@ class Ticket < ActiveRecord::Base
 													length: { minimum: 10 }
 
 
+
+	before_create :associate_tags
+
+	private
+			def associate_tags
+				if tag_names
+					tag_names.split(" ").each do |name|
+						self.tags << Tag.find_or_create_by(name: name)
+					end
+				end
+			end
 end
