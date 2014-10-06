@@ -30,7 +30,10 @@ RSpec.describe CommentsController, :type => :controller do
 		end
 
 		it "cannot tag a ticket when creating a comment" do
-			post :create, { comment: { text: "Tag!", tag_names: "one two" }, ticket_id: ticket.id }
+			post :create, { comment: { text: "Tag!", 
+																 tag_names: "one two" 
+															 },
+										  ticket_id: ticket.id }
 			ticket.reload expect(ticket.tags).to be_empty 
 		end
 	end

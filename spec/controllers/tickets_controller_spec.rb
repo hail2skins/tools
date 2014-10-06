@@ -63,6 +63,19 @@ RSpec.describe TicketsController, :type => :controller do
 				expect(flash[:alert]).to eql(message)
 			end
 
+			it "can create tickets, but not tag them" do
+				Permission.create(user: user, 
+													thing: project, 
+													action: "create tickets")
+
+				post :create, ticket: { title: "New ticket!", 
+																description: "Brand spanking new", 
+																tag_names: "these are tags"
+															},
+																project_id: project.id 
+				expect(Ticket.last.tags).to be_empty
+			end
+
 		end
 	end
 

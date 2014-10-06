@@ -9,11 +9,11 @@ class Comment < ActiveRecord::Base
   before_create :set_previous_state
   after_create :set_ticket_state
 
-  delegate :project, to: :ticket
-
   attr_accessor :tag_names
 
   after_create :associate_tags_with_ticket
+
+  delegate :project, to: :ticket
 
   private
 
